@@ -1,0 +1,5 @@
+prueba = {
+    "idCamper" : "",
+    "nota" : "",
+    "estado": ""
+}
