@@ -1,6 +1,7 @@
 import os
 import json
 import funciones.campers as c
+import funciones.pruebas as p
 import ui.menus as m
 
 campus = {
@@ -8,7 +9,7 @@ campus = {
         "campers" : {},
         "rutas" : {},
         "pruebas" : {},
-        "salones" : {},
+        "salones" : {}, 
         "entrenadores" : {}
     }
 }
@@ -25,9 +26,11 @@ if __name__ == "__main__":
             print(f"Tipo de dato incorrecto")
         else:
             if (opMainMenu == 1):
+                os.system("cls")
                 c.regCamper(campus)
             elif (opMainMenu == 2):
-                pass
+                id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
+                p.regPruebaInicial(id, campus)
             elif (opMainMenu == 3):
                 pass
             elif (opMainMenu == 4):
@@ -39,6 +42,8 @@ if __name__ == "__main__":
             elif (opMainMenu == 7):
                 pass
             elif (opMainMenu == 8):
+                print(f"GRACIAS POR USAR NUESTRO SERVICIO")
                 isActiveApp = False
+            # os.system("pause")
     # c.NewCamper(campus)
     # print(json.dumps(campus, indent = 4))
