@@ -1,4 +1,5 @@
 ruta = {
     "NroId" : "",
-    "Nombre" : ""
+    "Nombre" : "",
+    "IdModulos" : []
 }
