@@ -18,6 +18,24 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
                     print(f"El ID ya se encuentra registrado")
                 else:
                     isEmpty = False
+            elif (enunciadoDato == "Ingrese el id del trainer : "):
+                dataId = data.get(valorDato, -1)
+                if (type(dataId) != dict):
+                    print(f"El entrenador no se encuentra registrado")
+                else:
+                    isEmpty = False
+            elif (enunciadoDato == "Ingrese el id de la ruta : "):
+                dataId = data.get(valorDato, -1)
+                if (type(dataId) != dict):
+                    print(f"La ruta no se encuentra registrada")
+                else:
+                    isEmpty = False
+            elif (enunciadoDato == "Ingrese el id del salón : "):
+                dataId = data.get(valorDato, -1)
+                if (type(dataId) != dict):
+                    print(f"El salón no se encuentra registrado")
+                else:
+                    isEmpty = False
             else:
                 isEmpty = False
         else:
@@ -91,21 +109,32 @@ def buscarCamper(idCamper : str, campus : dict) -> dict:
         return data
     
 def matricularCamper(campus : dict):
-    data = campus.get("campus").get("campers")
-    id = input(f"Ingrese el id del Camper que desea matricular : ")
+    dataE = campus.get("campus").get("entrenadores")
+    dataR = campus.get("campus").get("rutas")
+    dataS = campus.get("campus").get("salones")
+    id = ""
+    while(id == ""):
+        id = input(f"Ingrese el id del Camper que desea matricular : ")
     camper = buscarCamper(id, campus)
     if (camper != {} and camper["Estado"] == "Aprobado"):
         valor = 0
-        idTrainer = verificarDato(valor, "Ingrese el id del trainer : ", data)
-        idRuta = verificarDato(valor, "Ingrese el id de la ruta : ", data)
-        fechaInicio = verificarDato(valor, "Ingrese la fecha de inicio : ", data)
-        fechaFinal = verificarDato(valor, "Ingrese la fecha final : ", data)
-        idSalon = verificarDato(valor, "Ingrese el id del salón : ", data)
-        camper.update({"idTrainer" : idTrainer})
+        idRuta = verificarDato(valor, "Ingrese el id de la ruta : ", dataR)
+        idSalon = ""
+        while (idSalon != dataR.get(idRuta)["IdSalon"]):
+            idSalon = verificarDato(valor, "Ingrese el id del salón : ", dataS)
+            if(idSalon != dataR.get(idRuta)["IdSalon"]):
+                print(f"El salón no corresponde a la ruta seleccionada")
+        fechaInicio = verificarDato(valor, "Ingrese la fecha de inicio : ", camper)
+        fechaFinal = verificarDato(valor, "Ingrese la fecha final : ", camper)
+        camper.update({"Estado" : "Matriculado"})
+        camper.update({"idSalon" : idSalon})
         camper.update({"idRuta" : idRuta})
+        # camper.update({"idTrainer" : idTrainer})
         camper.update({"fechaInicio" : fechaInicio})
         camper.update({"fechaFinal" : fechaFinal})
-        camper.update({"idSalon" : idSalon})
+        print(f"")
+        print(f"MATRICULA EXITOSA")
+        print(f"")
         print(json.dumps(campus, indent = 4))
     else:
         print(f"No se puede matricular")

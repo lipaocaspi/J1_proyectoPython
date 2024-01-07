@@ -9,8 +9,11 @@ listaModulos = ["Fundamentos de programacion", "Programacion Web", "Programacion
 def crearRuta(campus : dict):
     global isIncomplete
     isIncomplete = True
-    data = campus.get("campus").get("rutas")
-    nombre = input(f"Ingrese el nombre de la ruta : ")
+    dataR = campus.get("campus").get("rutas")
+    dataE = campus.get("campus").get("entrenadores")
+    nombre = ""
+    while(nombre == ""):
+        nombre = input(f"Ingrese el nombre de la ruta : ")
     idSalon = s.buscarSalon(campus)
     if (idSalon != ""):
         ruta = {
@@ -39,9 +42,24 @@ def crearRuta(campus : dict):
                 else:
                     print(f"El tema no puede estar vacio")
             ruta["modulos"].update({modulo["Id"] : modulo})
-        data.update({ruta["NroId"] : ruta})
-        campus.get("campus").get("rutas").update(data)
+        dataR.update({ruta["NroId"] : ruta})
+        campus.get("campus").get("rutas").update(dataR)
+        # for i in range(0, len(dataE)):
+            # if (len(dataE.get(i)["Idrutas"]) < 2):
+                # dataE.get(i)["Idrutas"].append(ruta["NroId"])
+                # break
         print(json.dumps(campus, indent = 4))
     else:
         print(f"No se puede crear una ruta sin un salón")
     os.system("pause")
+
+def buscarRuta(campus : dict) -> str:
+    idRuta = ""
+    while(idRuta == ""):
+        idRuta = input(f"Ingrese el id de la ruta : ")
+    data = campus.get("campus").get("rutas").get(idRuta, -1)
+    if (type(data) == dict):
+        return idRuta
+    else:
+        print(f"No existe una ruta con este código")
+        return ""

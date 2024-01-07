@@ -1,10 +1,11 @@
 import os
 import json
+import ui.menus as m
+import funciones.rutas as r
 import funciones.campers as c
 import funciones.pruebas as p
-import ui.menus as m
 import funciones.salones as s
-import funciones.rutas as r
+import funciones.entrenadores as e
 
 campus = {
     "campus" : {
@@ -21,6 +22,7 @@ if __name__ == "__main__":
     opMainMenu = 0
     while(isActiveApp):
         os.system("cls")
+        e.crearEntrenadores(campus)
         m.mostrarMenu()
         try:
             opMainMenu = int(input(f"Ingrese una opción : "))
@@ -37,10 +39,10 @@ if __name__ == "__main__":
                     os.system("pause")
                 else:
                     id = ""
-                    while(id ==""):
+                    while(id == ""):
                         id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
                     p.regPruebaInicial(id, campus)
-            elif (opMainMenu == 3):
+            elif (opMainMenu == 3): 
                 os.system("cls")
                 s.regSalones(campus)
             elif (opMainMenu == 4):
