@@ -79,5 +79,34 @@ def regCamper(campus : dict):
     camper["Telecontacto"].update({str((len(camper["Telecontacto"]) + 1)).zfill(3) : phoneFijo})
     data.update({camper["NroId"] : camper})
     campus.get("campus").get("campers").update(data)
-    # print(json.dumps(campus, indent = 4))
+    print(json.dumps(campus, indent = 4))
+    os.system("pause")
+
+def buscarCamper(idCamper : str, campus : dict) -> dict:
+    data = campus.get("campus").get("campers").get(idCamper, -1)
+    if (type(data) != dict):
+        print(f"No se encontró un Camper con este código")
+        return {}
+    else:
+        return data
+    
+def matricularCamper(campus : dict):
+    data = campus.get("campus").get("campers")
+    id = input(f"Ingrese el id del Camper que desea matricular : ")
+    camper = buscarCamper(id, campus)
+    if (camper != {} and camper["Estado"] == "Aprobado"):
+        valor = 0
+        idTrainer = verificarDato(valor, "Ingrese el id del trainer : ", data)
+        idRuta = verificarDato(valor, "Ingrese el id de la ruta : ", data)
+        fechaInicio = verificarDato(valor, "Ingrese la fecha de inicio : ", data)
+        fechaFinal = verificarDato(valor, "Ingrese la fecha final : ", data)
+        idSalon = verificarDato(valor, "Ingrese el id del salón : ", data)
+        camper.update({"idTrainer" : idTrainer})
+        camper.update({"idRuta" : idRuta})
+        camper.update({"fechaInicio" : fechaInicio})
+        camper.update({"fechaFinal" : fechaFinal})
+        camper.update({"idSalon" : idSalon})
+        print(json.dumps(campus, indent = 4))
+    else:
+        print(f"No se puede matricular")
     os.system("pause")

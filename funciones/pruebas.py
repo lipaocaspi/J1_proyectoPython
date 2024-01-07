@@ -28,10 +28,8 @@ def regPruebaInicial(id : str, campus : dict):
             notaTotal = (notaT + notaP) / 2
             if (notaTotal >= 60):
                 estado = "Aprobado"
-                r.agregarCamperARuta(id, campus)
             else:
                 estado = "Desaprobado"
-
             prueba = {
                 "idCamper" : id,
                 "nota" : notaTotal,

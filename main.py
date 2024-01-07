@@ -36,7 +36,9 @@ if __name__ == "__main__":
                     print(f"No se pueden registrar pruebas hasta que se registren salones y rutas")
                     os.system("pause")
                 else:
-                    id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
+                    id = ""
+                    while(id ==""):
+                        id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
                     p.regPruebaInicial(id, campus)
             elif (opMainMenu == 3):
                 os.system("cls")
@@ -45,7 +47,8 @@ if __name__ == "__main__":
                 os.system("cls")
                 r.crearRuta(campus)
             elif (opMainMenu == 5):
-                pass
+                os.system("cls")
+                c.matricularCamper(campus)
             elif (opMainMenu == 6):
                 pass
             elif (opMainMenu == 7):
@@ -53,6 +56,6 @@ if __name__ == "__main__":
             elif (opMainMenu == 8):
                 print(f"GRACIAS POR USAR NUESTRO SERVICIO")
                 isActiveApp = False
-            # os.system("pause")
+            os.system("pause")
     # c.NewCamper(campus)
     # print(json.dumps(campus, indent = 4))

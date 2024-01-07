@@ -36,7 +36,7 @@ def regSalones(campus : dict):
 
     data.update({salon["id"]: salon})
     campus.get("campus").get("salones").update(data)
-    # print(json.dumps(campus, indent = 4))
+    print(json.dumps(campus, indent = 4))
     os.system("pause")
 
 def buscarSalon(campus : dict) -> str:
