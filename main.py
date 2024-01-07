@@ -32,8 +32,12 @@ if __name__ == "__main__":
                 c.regCamper(campus)
             elif (opMainMenu == 2):
                 os.system("cls")
-                id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
-                p.regPruebaInicial(id, campus)
+                if (len(campus.get("campus").get("salones")) == 0 and len(campus.get("campus").get("rutas")) == 0):
+                    print(f"No se pueden registrar pruebas hasta que se registren salones y rutas")
+                    os.system("pause")
+                else:
+                    id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
+                    p.regPruebaInicial(id, campus)
             elif (opMainMenu == 3):
                 os.system("cls")
                 s.regSalones(campus)

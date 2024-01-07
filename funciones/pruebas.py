@@ -1,5 +1,6 @@
 import os
 import json
+import funciones.rutas as r
 
 def verificarNota(valorDato, enunciadoDato, tipoDato) -> int:
     global isIncorrect
@@ -27,6 +28,7 @@ def regPruebaInicial(id : str, campus : dict):
             notaTotal = (notaT + notaP) / 2
             if (notaTotal >= 60):
                 estado = "Aprobado"
+                r.agregarCamperARuta(id, campus)
             else:
                 estado = "Desaprobado"
 

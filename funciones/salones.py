@@ -38,3 +38,12 @@ def regSalones(campus : dict):
     campus.get("campus").get("salones").update(data)
     # print(json.dumps(campus, indent = 4))
     os.system("pause")
+
+def buscarSalon(campus : dict) -> str:
+    idSalon = input(f"Ingrese el id del salón asignado : ")
+    data = campus.get("campus").get("salones").get(idSalon, -1)
+    if (type(data) == dict):
+        return idSalon
+    else:
+        print(f"No existe un salón con este código")
+        return ""
