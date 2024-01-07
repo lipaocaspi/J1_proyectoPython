@@ -3,6 +3,8 @@ import json
 import funciones.campers as c
 import funciones.pruebas as p
 import ui.menus as m
+import funciones.salones as s
+import funciones.rutas as r
 
 campus = {
     "campus" : {
@@ -29,12 +31,15 @@ if __name__ == "__main__":
                 os.system("cls")
                 c.regCamper(campus)
             elif (opMainMenu == 2):
+                os.system("cls")
                 id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
                 p.regPruebaInicial(id, campus)
             elif (opMainMenu == 3):
-                pass
+                os.system("cls")
+                s.regSalones(campus)
             elif (opMainMenu == 4):
-                pass
+                os.system("cls")
+                r.crearRuta(campus)
             elif (opMainMenu == 5):
                 pass
             elif (opMainMenu == 6):

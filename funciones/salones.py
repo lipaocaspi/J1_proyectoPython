@@ -1,5 +1,40 @@
-salon = {
-    "id" : "",
-    "nombre" : "",
-    "capacidad" : 0
-}
+import os
+import json
+
+isEmpty = True
+
+def verificarDato(valorDato, enunciadoDato, data) -> str:
+    global isEmpty
+    isEmpty = True
+    valorDato = ""
+    while (isEmpty):
+        valorDato = input(f"{enunciadoDato}")
+        if (valorDato != ""):
+            if (enunciadoDato == "Ingrese el ID del salón : "):
+                dataId = data.get(valorDato, -1)
+                if (type(dataId) == dict):
+                    print(f"El ID ya se encuentra registrado")
+                else:
+                    isEmpty = False
+            else:
+                isEmpty = False
+        else:
+            print(f"El dato no puede estar vacio")
+    return valorDato
+
+def regSalones(campus : dict):
+    data = campus.get("campus").get("salones")
+    valor = 0
+    id = verificarDato(valor, "Ingrese el ID del salón : ", data)
+    nombre = verificarDato(valor, "Ingrese el nombre del salón : ", data)
+
+    salon = {
+        "id" : id,
+        "nombre" : nombre,
+        "capacidad" : 0
+    }
+
+    data.update({salon["id"]: salon})
+    campus.get("campus").get("salones").update(data)
+    # print(json.dumps(campus, indent = 4))
+    os.system("pause")

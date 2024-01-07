@@ -15,7 +15,7 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
             if (enunciadoDato == "Ingrese ID del Camper : "):
                 dataId = data.get(valorDato, -1)
                 if (type(dataId) == dict):
-                    print(f"El id ya se encuentra registrado")
+                    print(f"El ID ya se encuentra registrado")
                 else:
                     isEmpty = False
             else:
@@ -79,5 +79,5 @@ def regCamper(campus : dict):
     camper["Telecontacto"].update({str((len(camper["Telecontacto"]) + 1)).zfill(3) : phoneFijo})
     data.update({camper["NroId"] : camper})
     campus.get("campus").get("campers").update(data)
-    print(json.dumps(campus, indent = 4))
+    # print(json.dumps(campus, indent = 4))
     os.system("pause")
