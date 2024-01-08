@@ -24,7 +24,7 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
                     print(f"El entrenador no se encuentra registrado")
                 else:
                     isEmpty = False
-            elif (enunciadoDato == "Ingrese el id de la ruta : "):
+            elif (enunciadoDato == "Ingrese el id de la ruta : " or enunciadoDato == "Ingrese el id de la ruta asociada con el Trainer : "):
                 dataId = data.get(valorDato, -1)
                 if (type(dataId) != dict):
                     print(f"La ruta no se encuentra registrada")
@@ -34,6 +34,12 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
                 dataId = data.get(valorDato, -1)
                 if (type(dataId) != dict):
                     print(f"El salón no se encuentra registrado")
+                else:
+                    isEmpty = False
+            elif (enunciadoDato == "Ingrese ID del Trainer : "):
+                dataId = data.get(valorDato, -1)
+                if (type(dataId) == dict):
+                    print(f"El ID ya se encuentra registrado")
                 else:
                     isEmpty = False
             else:
@@ -56,7 +62,7 @@ def regCamper(campus : dict):
     print(f"")
     id = verificarDato(valor, "Ingrese ID del Camper : ", data)
     nombre = verificarDato(valor, "Ingrese nombre del Camper : ", data)
-    apellido= verificarDato(valor, "Ingrese apellidos del Camper : ", data)
+    apellido = verificarDato(valor, "Ingrese apellidos del Camper : ", data)
     direccion = verificarDato(valor, "Ingrese direccion del Camper : ", data)
     nroTelCel = verificarDato(valor, "Ingrese teléfono celular del Camper : ", data)
     nroTelFijo = verificarDato(valor, "Ingrese teléfono fijo del Camper : ", data)

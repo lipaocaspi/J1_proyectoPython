@@ -26,7 +26,6 @@ if __name__ == "__main__":
     """
     while(isActiveApp):
         os.system("cls")
-        e.crearEntrenadores(campus)
         m.mostrarMenu()
         try:
             opMainMenu = int(input(f"Ingrese una opción : "))
@@ -52,14 +51,20 @@ if __name__ == "__main__":
                 s.regSalones(campus)
             elif (opMainMenu == 4):
                 os.system("cls")
-                r.crearRuta(campus)
+                if (len(campus.get("campus").get("rutas")) < 2):
+                    print(f"No se pueden registrar entrenadores hasta que se registren al menos 2 rutas")
+                else:
+                    e.regEntrenadores(campus)
             elif (opMainMenu == 5):
                 os.system("cls")
-                c.matricularCamper(campus)
+                r.crearRuta(campus)
             elif (opMainMenu == 6):
                 os.system("cls")
-                m.mostrarMenuR()
+                c.matricularCamper(campus)
             elif (opMainMenu == 7):
+                os.system("cls")
+                m.mostrarMenuR()
+            elif (opMainMenu == 8):
                 print(f"GRACIAS POR USAR NUESTRO SERVICIO")
                 isActiveApp = False
             os.system("pause")

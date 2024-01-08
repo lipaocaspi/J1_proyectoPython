@@ -2,7 +2,6 @@ import os
 import json
 import funciones.salones as s
 import funciones.pruebas as p
-import funciones.entrenadores as e
 import funciones.corefile as cf
 
 listaModulos = ["Fundamentos de programacion", "Programacion Web", "Programacion Formal", "Bases de Datos", "Backend"]
@@ -17,6 +16,7 @@ def crearRuta(campus : dict):
     global isIncomplete
     isIncomplete = True
     dataR = campus.get("campus").get("rutas")
+    dataE = campus.get("campus").get("entrenadores")
     nombre = ""
     while(nombre == ""):
         nombre = input(f"Ingrese el nombre de la ruta : ")

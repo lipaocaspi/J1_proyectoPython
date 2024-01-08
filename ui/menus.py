@@ -2,7 +2,7 @@ import os
 import main as m
 import funciones.campers as c
 
-menuP = ["Registrar Camper", "Registrar Prueba", "Registro Áreas de Entrenamiento", "Creación Rutas de Entrenamiento", "Gestor de Matriculas", "Modulo de Reportes", "Salir"]
+menuP = ["Registrar Camper", "Registrar Prueba", "Registro Áreas de Entrenamiento", "Registro Entrenadores", "Creación Rutas de Entrenamiento", "Gestor de Matriculas", "Modulo de Reportes", "Salir"]
 menuReporte = ["Campers Inscritos", "Campers Matriculados", "Entrenadores de Campus", "Campers con bajo rendimiento", "Buscar Ruta de Entrenamiento", "Resumen de Módulos", "Volver"]
 
 def mostrarMenu():

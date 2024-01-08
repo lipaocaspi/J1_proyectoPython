@@ -1,9 +1,111 @@
 {
     "campus": {
         "campers": {},
-        "rutas": {},
+        "rutas": {
+            "1": {
+                "NroId": "1",
+                "Nombre": "NODEJS",
+                "modulos": {
+                    "1": {
+                        "Id": "1",
+                        "Nombre": "Fundamentos de programacion",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "2": {
+                        "Id": "2",
+                        "Nombre": "Programacion Web",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "3": {
+                        "Id": "3",
+                        "Nombre": "Programacion Formal",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "4": {
+                        "Id": "4",
+                        "Nombre": "Bases de Datos",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "5": {
+                        "Id": "5",
+                        "Nombre": "Backend",
+                        "Temas": [
+                            "A"
+                        ]
+                    }
+                },
+                "IdSalon": "1"
+            },
+            "2": {
+                "NroId": "2",
+                "Nombre": "JAVA",
+                "modulos": {
+                    "1": {
+                        "Id": "1",
+                        "Nombre": "Fundamentos de programacion",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "2": {
+                        "Id": "2",
+                        "Nombre": "Programacion Web",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "3": {
+                        "Id": "3",
+                        "Nombre": "Programacion Formal",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "4": {
+                        "Id": "4",
+                        "Nombre": "Bases de Datos",
+                        "Temas": [
+                            "A"
+                        ]
+                    },
+                    "5": {
+                        "Id": "5",
+                        "Nombre": "Backend",
+                        "Temas": [
+                            "A"
+                        ]
+                    }
+                },
+                "IdSalon": "1"
+            }
+        },
         "pruebas": {},
-        "salones": {},
-        "entrenadores": {}
+        "salones": {
+            "1": {
+                "id": "1",
+                "nombre": "APOLO",
+                "capacidad": 0
+            }
+        },
+        "entrenadores": {
+            "1": {
+                "NroId": "1",
+                "Nombre": "MIGUEL",
+                "Apellidos": "S",
+                "Horario": "Dia",
+                "Idrutas": {
+                    "Ruta1": "1",
+                    "Ruta2": "2"
+                }
+            }
+        }
     }
 }
