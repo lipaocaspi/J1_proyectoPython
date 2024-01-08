@@ -8,6 +8,7 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
     global isEmpty
     isEmpty = True
     valorDato = ""
+
     while (isEmpty):
         valorDato = input(f"{enunciadoDato}")
         if (valorDato != ""):
@@ -45,6 +46,7 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
                 isEmpty = False
         else:
             print(f"El dato no puede estar vacio")
+
     return valorDato
     
 def regCamper(campus : dict):
@@ -56,6 +58,7 @@ def regCamper(campus : dict):
     print(header)
     data = campus.get("campus").get("campers")
     valor = ""
+
     print(f"")
     print(f"DATOS DEL CAMPER")
     print(f"")
@@ -66,6 +69,7 @@ def regCamper(campus : dict):
     nroTelCel = verificarDato(valor, "Ingrese teléfono celular del Camper : ", data)
     nroTelFijo = verificarDato(valor, "Ingrese teléfono fijo del Camper : ", data)
     ubicacionTelFijo = verificarDato(valor, "Ingrese si el teléfono pertenece a Casa o Trabajo : ", data)
+
     print(f"")
     print(f"DATOS DEL ACUDIENTE")
     print(f"")
@@ -125,13 +129,14 @@ def matricularCamper(campus : dict):
     *************************************
     """
     print(header)
-    dataE = campus.get("campus").get("entrenadores")
     dataR = campus.get("campus").get("rutas")
     dataS = campus.get("campus").get("salones")
     id = ""
+
     while(id == ""):
         id = input(f"Ingrese el id del Camper que desea matricular : ")
     camper = buscarCamper(id, campus)
+    
     if (camper != {} and camper["Estado"] == "Aprobado"):
         valor = 0
         idRuta = verificarDato(valor, "Ingrese el id de la ruta : ", dataR)

@@ -19,6 +19,7 @@ def crearRuta(campus : dict):
     dataE = campus.get("campus").get("entrenadores")
     nombre = ""
     valor = 0
+    
     while(nombre == ""):
         nombre = input(f"Ingrese el nombre de la ruta : ")
     idSalon = s.buscarSalon(campus)

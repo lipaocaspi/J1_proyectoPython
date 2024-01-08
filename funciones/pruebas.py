@@ -21,6 +21,7 @@ def verificarNota(valorDato, enunciadoDato, tipoDato) -> int:
 
 def regPrueba(id : str, campus : dict):
     data = campus.get("campus").get("campers").get(id, -1)
+    
     if (type(data) == dict):
         valor = 0
         if (data["Estado"] == "Inscrito"):

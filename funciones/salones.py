@@ -31,6 +31,7 @@ def regSalones(campus : dict):
     print(header)
     data = campus.get("campus").get("salones")
     valor = 0
+    
     id = verificarDato(valor, "Ingrese el ID del salón : ", data)
     nombre = verificarDato(valor, "Ingrese el nombre del salón : ", data)
 
