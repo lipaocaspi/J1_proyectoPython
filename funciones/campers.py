@@ -1,4 +1,3 @@
-import json
 import funciones.corefile as cf
 
 cf.MY_DATABASE='data/campus.json'
@@ -158,6 +157,41 @@ def matricularCamper(campus : dict):
             print(f"")
             print(f"MATRICULA EXITOSA")
             print(f"")
-            # print(json.dumps(campus, indent = 4))
     else:
         print(f"No se puede matricular")
+
+def campersInscritos(campus : dict):
+    print(f"")
+    print(f"LISTADO DE CAMPERS INSCRITOS")
+    print(f"")
+    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+    print(f"------------------------------------------------------")
+    data = campus.get("campus").get("campers").keys()
+    for i in list(data):
+        dataC = campus.get("campus").get("campers").get(i, -1)
+        if (dataC["Estado"] == "Inscrito"):
+            print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+
+def campersAprobados(campus : dict):
+    print(f"")
+    print(f"LISTADO DE CAMPERS APROBADOS")
+    print(f"")
+    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+    print(f"------------------------------------------------------")
+    data = campus.get("campus").get("campers").keys()
+    for i in list(data):
+        dataC = campus.get("campus").get("campers").get(i, -1)
+        if (dataC["Estado"] == "Aprobado"):
+            print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+
+def campersBajoRendimiento(campus : dict):
+    print(f"")
+    print(f"LISTADO DE CAMPERS CON BAJO RENDIMIENTO")
+    print(f"")
+    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+    print(f"------------------------------------------------------")
+    data = campus.get("campus").get("campers").keys()
+    for i in list(data):
+        dataC = campus.get("campus").get("campers").get(i, -1)
+        if (dataC["Estado"] == "En Riesgo"):
+            print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))

@@ -27,3 +27,14 @@ def regEntrenadores(campus : dict):
     dataE.update({entrenador["NroId"] : entrenador})
     campus.get("campus").get("entrenadores").update(dataE)
     cf.UpdateFile(campus)
+
+def entrenadoresCampus(campus : dict):
+    print(f"")
+    print(f"LISTADO DE ENTRENADORES")
+    print(f"")
+    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+    print(f"------------------------------------------------------")
+    data = campus.get("campus").get("entrenadores").keys()
+    for i in list(data):
+        dataE = campus.get("campus").get("entrenadores").get(i, -1)
+        print("{:<15} {:<15} {:<20}".format(dataE["NroId"], dataE["Nombre"], dataE["Apellidos"]))
