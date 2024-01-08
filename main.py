@@ -1,5 +1,4 @@
 import os
-import json
 import ui.menus as m
 import funciones.rutas as r
 import funciones.campers as c
@@ -58,5 +57,3 @@ if __name__ == "__main__":
                 print(f"GRACIAS POR USAR NUESTRO SERVICIO")
                 isActiveApp = False
             os.system("pause")
-    # c.NewCamper(campus)
-    # print(json.dumps(campus, indent = 4))

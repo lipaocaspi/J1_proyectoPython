@@ -1,6 +1,6 @@
 import os
-import json
 import funciones.rutas as r
+import funciones.corefile as cf
 
 def verificarNota(valorDato, enunciadoDato, tipoDato) -> int:
     global isIncorrect
@@ -41,6 +41,7 @@ def regPrueba(id : str, campus : dict):
             dataP.update({str((len(dataP) + 1)).zfill(3) : prueba})
             campus.get("campus").get("pruebas").update(dataP)
             data.update({"Estado" : estado})
+            cf.NewFile(campus)
         elif (data["Estado"] == "Matriculado"):
             idModulo = ""
             while (idModulo not in ["1", "2", "3", "4", "5"]):
@@ -63,6 +64,7 @@ def regPrueba(id : str, campus : dict):
             dataP.update({str((len(dataP) + 1)).zfill(3) : prueba})
             campus.get("campus").get("pruebas").update(dataP)
             data.update({"Estado" : estado})
+            cf.NewFile(campus)
         else:
             print(f"El estado del Camper no es Matriculado")
     else:

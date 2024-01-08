@@ -1,5 +1,3 @@
-import json
-
 def crearEntrenadores(campus : dict):
     entrenador1 = {
         "NroId" : "1",

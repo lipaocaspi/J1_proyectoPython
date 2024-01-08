@@ -1,5 +1,6 @@
 import os
 import json
+import funciones.corefile as cf
 
 isEmpty = True
 
@@ -36,6 +37,7 @@ def regSalones(campus : dict):
 
     data.update({salon["id"]: salon})
     campus.get("campus").get("salones").update(data)
+    cf.NewFile(campus)
     print(json.dumps(campus, indent = 4))
     os.system("pause")
 

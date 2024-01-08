@@ -3,6 +3,7 @@ import json
 import funciones.salones as s
 import funciones.pruebas as p
 import funciones.entrenadores as e
+import funciones.corefile as cf
 
 listaModulos = ["Fundamentos de programacion", "Programacion Web", "Programacion Formal", "Bases de Datos", "Backend"]
 
@@ -43,6 +44,7 @@ def crearRuta(campus : dict):
             ruta["modulos"].update({modulo["Id"] : modulo})
         dataR.update({ruta["NroId"] : ruta})
         campus.get("campus").get("rutas").update(dataR)
+        cf.NewFile(campus)
         # e.asignarEntrenador(ruta, campus)
         print(json.dumps(campus, indent = 4))
     else:
