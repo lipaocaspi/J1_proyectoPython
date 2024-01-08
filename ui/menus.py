@@ -1,10 +1,11 @@
 import os
 import main as m
+import funciones.rutas as r
 import funciones.campers as c
 import funciones.entrenadores as e
 
 menuP = ["Registrar Camper", "Registrar Prueba", "Registro Áreas de Entrenamiento", "Registro Entrenadores", "Creación Rutas de Entrenamiento", "Gestor de Matriculas", "Modulo de Reportes", "Salir"]
-menuReporte = ["Campers Inscritos", "Campers Matriculados", "Entrenadores de Campus", "Campers con bajo rendimiento", "Buscar Ruta de Entrenamiento", "Resumen de Módulos", "Volver"]
+menuReporte = ["Campers Inscritos", "Campers Aprobados", "Entrenadores de Campus", "Campers con bajo rendimiento", "Buscar Ruta de Entrenamiento", "Resumen de Módulos", "Volver"]
 
 def mostrarMenu():
     c.cf.checkFile(m.campus)
@@ -50,8 +51,9 @@ def mostrarMenuR():
                 c.campersBajoRendimiento(m.campus)
             elif (opMenu == 5):
                 os.system("cls")
+                idRuta = r.buscarRuta(m.campus)
+                r.mostrarRuta(idRuta, m.campus)
             elif (opMenu == 6):
                 os.system("cls")
             elif (opMenu == 7):
                 isIncorrect = False
-        os.system("pause")

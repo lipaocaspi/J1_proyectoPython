@@ -1,4 +1,3 @@
-import funciones.rutas as r
 import funciones.corefile as cf
 
 def verificarNota(valorDato, enunciadoDato, tipoDato) -> int:

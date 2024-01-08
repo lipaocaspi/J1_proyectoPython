@@ -1,4 +1,3 @@
-import json
 import funciones.salones as s
 import funciones.pruebas as p
 import funciones.campers as c
@@ -58,7 +57,6 @@ def crearRuta(campus : dict):
             campus.get("campus").get("rutas").update(dataR)
             campus.get("campus").get("entrenadores").update(dataE)
             cf.UpdateFile(campus)
-            # print(json.dumps(campus, indent = 4))
         else:
             print(f"No se puede crear una ruta sin un salón")
     else:
@@ -74,3 +72,21 @@ def buscarRuta(campus : dict) -> str:
     else:
         print(f"No existe una ruta con este código")
         return ""
+    
+def mostrarRuta(idRuta : str, campus : dict):
+    print(f"")
+    print(f"RUTA")
+    print(f"")
+    dataR = campus.get("campus").get("rutas").get(idRuta, -1)
+    dataC = campus.get("campus").get("campers").keys()
+    dataE = campus.get("campus").get("entrenadores").get(dataR["IdTrainer"], -1)
+    print(f"\tCAMPERS")
+    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+    for i in list(dataC):
+        data = campus.get("campus").get("campers").get(i, -1)
+        if (("idRuta" in data) and data["idRuta"] == idRuta):
+            print("{:<15} {:<15} {:<20}".format(data["NroId"], data["Nombre"], data["Apellido"]))
+    print(f"")
+    print(f"\tENTRENADOR")
+    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+    print("{:<15} {:<15} {:<20}".format(dataE["NroId"], dataE["Nombre"], dataE["Apellidos"]))
