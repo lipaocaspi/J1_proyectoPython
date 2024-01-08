@@ -1,4 +1,3 @@
-import os
 import funciones.rutas as r
 import funciones.corefile as cf
 
@@ -69,5 +68,3 @@ def regPrueba(id : str, campus : dict):
             print(f"El estado del Camper no es Matriculado")
     else:
         print(f"No se encontró el id")
-    
-    os.system("pause")

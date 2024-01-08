@@ -1,4 +1,3 @@
-import os
 import json
 import funciones.corefile as cf
 
@@ -110,7 +109,6 @@ def regCamper(campus : dict):
     data.update({camper["NroId"] : camper})
     campus.get("campus").get("campers").update(data)
     cf.UpdateFile(campus)
-    os.system("pause")
 
 def buscarCamper(idCamper : str, campus : dict) -> dict:
     data = campus.get("campus").get("campers").get(idCamper, -1)
@@ -127,7 +125,7 @@ def matricularCamper(campus : dict):
     *************************************
     """
     print(header)
-    # dataE = campus.get("campus").get("entrenadores")
+    dataE = campus.get("campus").get("entrenadores")
     dataR = campus.get("campus").get("rutas")
     dataS = campus.get("campus").get("salones")
     id = ""
@@ -138,6 +136,7 @@ def matricularCamper(campus : dict):
         valor = 0
         idRuta = verificarDato(valor, "Ingrese el id de la ruta : ", dataR)
         idSalon = dataR.get(idRuta)["IdSalon"]
+        idTrainer = dataR.get(idRuta)["IdTrainer"]
         if (dataS.get(idSalon)["capacidad"] == 33):
             print(f"No se pueden agregar más Campers a esta ruta")
         else:
@@ -146,7 +145,7 @@ def matricularCamper(campus : dict):
             camper.update({"Estado" : "Matriculado"})
             camper.update({"idRuta" : idRuta})
             camper.update({"idSalon" : idSalon})
-            # camper.update({"idTrainer" : idTrainer})
+            camper.update({"idTrainer" : idTrainer})
             camper.update({"fechaInicio" : fechaInicio})
             camper.update({"fechaFinal" : fechaFinal})
             dataS.get(idSalon).update({"capacidad" : dataS.get(idSalon)["capacidad"] + 1})
@@ -154,7 +153,6 @@ def matricularCamper(campus : dict):
             print(f"")
             print(f"MATRICULA EXITOSA")
             print(f"")
-            print(json.dumps(campus, indent = 4))
+            # print(json.dumps(campus, indent = 4))
     else:
         print(f"No se puede matricular")
-    os.system("pause")

@@ -48,3 +48,4 @@ def mostrarMenuR():
                 os.system("cls")
             elif (opMenu == 7):
                 isIncorrect = False
+            os.system("pause")

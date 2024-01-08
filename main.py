@@ -48,16 +48,19 @@ if __name__ == "__main__":
                     p.regPrueba(id, campus)
             elif (opMainMenu == 3): 
                 os.system("cls")
-                s.regSalones(campus)
+                if (len(campus.get("campus").get("salones")) == 3):
+                    print(f"No es posible registrar más salones")
+                else:
+                    s.regSalones(campus)
             elif (opMainMenu == 4):
                 os.system("cls")
-                if (len(campus.get("campus").get("rutas")) < 2):
-                    print(f"No se pueden registrar entrenadores hasta que se registren al menos 2 rutas")
-                else:
-                    e.regEntrenadores(campus)
+                e.regEntrenadores(campus)
             elif (opMainMenu == 5):
                 os.system("cls")
-                r.crearRuta(campus)
+                if (len(campus.get("campus").get("entrenadores")) ==  0):
+                    print(f"No se pueden registrar rutas hasta que se registre al menos un entrenador")
+                else:
+                    r.crearRuta(campus)
             elif (opMainMenu == 6):
                 os.system("cls")
                 c.matricularCamper(campus)

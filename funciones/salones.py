@@ -1,4 +1,3 @@
-import os
 import json
 import funciones.corefile as cf
 
@@ -44,8 +43,7 @@ def regSalones(campus : dict):
     data.update({salon["id"]: salon})
     campus.get("campus").get("salones").update(data)
     cf.UpdateFile(campus)
-    print(json.dumps(campus, indent = 4))
-    os.system("pause")
+    # print(json.dumps(campus, indent = 4))
 
 def buscarSalon(campus : dict) -> str:
     idSalon = input(f"Ingrese el id del salón asignado : ")

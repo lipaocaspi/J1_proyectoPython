@@ -1,4 +1,3 @@
-import os
 import funciones.campers as c
 import funciones.corefile as cf
 
@@ -22,13 +21,9 @@ def regEntrenadores(campus : dict):
         "Nombre" : nombre,
         "Apellidos" : apellido,
         "Horario" : horario,
-        "Idrutas" : {}
+        "RutasAsignadas" : 0
     }
 
     dataE.update({entrenador["NroId"] : entrenador})
     campus.get("campus").get("entrenadores").update(dataE)
-    IdRuta1 = c.verificarDato(valor, "Ingrese el id de la ruta Nro1 asociada con el Trainer : ", dataR)
-    dataE.get(id).get("Idrutas").update({"Ruta1" : IdRuta1})
-    IdRuta2 = c.verificarDato(valor, "Ingrese el id de la ruta Nro2 asociada con el Trainer : ", dataR)
-    dataE.get(id).get("Idrutas").update({"Ruta2" : IdRuta2})
     cf.UpdateFile(campus)
