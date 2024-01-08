@@ -2,7 +2,7 @@ import os
 import json
 import funciones.corefile as cf
 
-cf.MY_DATABASE='data/campers.json'
+cf.MY_DATABASE='data/campus.json'
 isEmpty = True
 
 def verificarDato(valorDato, enunciadoDato, data) -> str:
