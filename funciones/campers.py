@@ -97,8 +97,10 @@ def regCamper(campus : dict):
     camper["Telecontacto"].update({str((len(camper["Telecontacto"]) + 1)).zfill(3) : phoneFijo})
     data.update({camper["NroId"] : camper})
     campus.get("campus").get("campers").update(data)
+    cf.AddData(campus)
     print(json.dumps(campus, indent = 4))
     os.system("pause")
+    # cf.AddData(campus)
 
 def buscarCamper(idCamper : str, campus : dict) -> dict:
     data = campus.get("campus").get("campers").get(idCamper, -1)

@@ -1,7 +1,7 @@
 import os
 import json
 
-MY_DATABASE = 'data/campus.json'
+MY_DATABASE = ""
 
 def NewFile(*param):
     with open(MY_DATABASE, "w") as wf:
