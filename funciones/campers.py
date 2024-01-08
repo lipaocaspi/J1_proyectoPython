@@ -97,7 +97,7 @@ def regCamper(campus : dict):
     camper["Telecontacto"].update({str((len(camper["Telecontacto"]) + 1)).zfill(3) : phoneFijo})
     data.update({camper["NroId"] : camper})
     campus.get("campus").get("campers").update(data)
-    cf.NewFile(campus)
+    cf.UpdateFile(campus)
     # print(json.dumps(campus, indent = 4))
     os.system("pause")
 
@@ -133,7 +133,7 @@ def matricularCamper(campus : dict):
             camper.update({"fechaInicio" : fechaInicio})
             camper.update({"fechaFinal" : fechaFinal})
             dataS.get(idSalon).update({"capacidad" : dataS.get(idSalon)["capacidad"] + 1})
-            cf.NewFile(campus)
+            cf.UpdateFile(campus)
             print(f"")
             print(f"MATRICULA EXITOSA")
             print(f"")

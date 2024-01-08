@@ -3,7 +3,7 @@ import json
 
 MY_DATABASE = ""
 
-def NewFile(*param):
+def UpdateFile(*param):
     with open(MY_DATABASE, "w") as wf:
         json.dump(param[0], wf, indent = 4)
 
@@ -22,7 +22,7 @@ def AddData(*param):
 def Eliminar(*param):
     data = list(param)
     data[1].pop(data[0])
-    NewFile(data[1])
+    UpdateFile(data[1])
 
 def ReadFile():
     with open(MY_DATABASE, "r") as rf:
@@ -35,4 +35,4 @@ def checkFile(*param):
             data[0].update(ReadFile())
     else:
         if(len(param)):
-            NewFile(data[0])
+            UpdateFile(data[0])

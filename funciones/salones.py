@@ -37,7 +37,7 @@ def regSalones(campus : dict):
 
     data.update({salon["id"]: salon})
     campus.get("campus").get("salones").update(data)
-    cf.NewFile(campus)
+    cf.UpdateFile(campus)
     print(json.dumps(campus, indent = 4))
     os.system("pause")
 

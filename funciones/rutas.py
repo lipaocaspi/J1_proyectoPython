@@ -44,7 +44,7 @@ def crearRuta(campus : dict):
             ruta["modulos"].update({modulo["Id"] : modulo})
         dataR.update({ruta["NroId"] : ruta})
         campus.get("campus").get("rutas").update(dataR)
-        cf.NewFile(campus)
+        cf.UpdateFile(campus)
         # e.asignarEntrenador(ruta, campus)
         print(json.dumps(campus, indent = 4))
     else:
