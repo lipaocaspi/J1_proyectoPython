@@ -28,11 +28,3 @@ def crearEntrenadores(campus : dict):
     campus.get("campus").get("entrenadores").update({entrenador1["NroId"] : entrenador1})
     campus.get("campus").get("entrenadores").update({entrenador2["NroId"] : entrenador2})
     campus.get("campus").get("entrenadores").update({entrenador3["NroId"] : entrenador3})
-
-# NO SIRVE
-def asignarEntrenador(ruta : dict, campus : dict):
-    for i in range(1, 4):
-        dataE = campus.get("campus").get("entrenadores").get(i, -1)
-        if (len(dataE["Idrutas"]) < 2):
-            dataE["Idrutas"].append(ruta["NroId"])
-            break

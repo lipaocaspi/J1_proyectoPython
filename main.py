@@ -52,10 +52,9 @@ if __name__ == "__main__":
                 os.system("cls")
                 c.matricularCamper(campus)
             elif (opMainMenu == 6):
-                pass
+                os.system("cls")
+                m.mostrarMenuR()
             elif (opMainMenu == 7):
-                pass
-            elif (opMainMenu == 8):
                 print(f"GRACIAS POR USAR NUESTRO SERVICIO")
                 isActiveApp = False
             os.system("pause")
