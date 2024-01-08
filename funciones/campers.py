@@ -109,7 +109,7 @@ def buscarCamper(idCamper : str, campus : dict) -> dict:
         return data
     
 def matricularCamper(campus : dict):
-    dataE = campus.get("campus").get("entrenadores")
+    # dataE = campus.get("campus").get("entrenadores")
     dataR = campus.get("campus").get("rutas")
     dataS = campus.get("campus").get("salones")
     id = ""
@@ -119,23 +119,23 @@ def matricularCamper(campus : dict):
     if (camper != {} and camper["Estado"] == "Aprobado"):
         valor = 0
         idRuta = verificarDato(valor, "Ingrese el id de la ruta : ", dataR)
-        idSalon = ""
-        while (idSalon != dataR.get(idRuta)["IdSalon"]):
-            idSalon = verificarDato(valor, "Ingrese el id del salón : ", dataS)
-            if(idSalon != dataR.get(idRuta)["IdSalon"]):
-                print(f"El salón no corresponde a la ruta seleccionada")
-        fechaInicio = verificarDato(valor, "Ingrese la fecha de inicio : ", camper)
-        fechaFinal = verificarDato(valor, "Ingrese la fecha final : ", camper)
-        camper.update({"Estado" : "Matriculado"})
-        camper.update({"idSalon" : idSalon})
-        camper.update({"idRuta" : idRuta})
-        # camper.update({"idTrainer" : idTrainer})
-        camper.update({"fechaInicio" : fechaInicio})
-        camper.update({"fechaFinal" : fechaFinal})
-        print(f"")
-        print(f"MATRICULA EXITOSA")
-        print(f"")
-        print(json.dumps(campus, indent = 4))
+        idSalon = dataR.get(idRuta)["IdSalon"]
+        if (dataS.get(idSalon)["capacidad"] == 33):
+            print(f"No se pueden agregar más Campers a esta ruta")
+        else:
+            fechaInicio = verificarDato(valor, "Ingrese la fecha de inicio : ", camper)
+            fechaFinal = verificarDato(valor, "Ingrese la fecha final : ", camper)
+            camper.update({"Estado" : "Matriculado"})
+            camper.update({"idRuta" : idRuta})
+            camper.update({"idSalon" : idSalon})
+            # camper.update({"idTrainer" : idTrainer})
+            camper.update({"fechaInicio" : fechaInicio})
+            camper.update({"fechaFinal" : fechaFinal})
+            dataS.get(idSalon).update({"capacidad" : dataS.get(idSalon)["capacidad"] + 1})
+            print(f"")
+            print(f"MATRICULA EXITOSA")
+            print(f"")
+            print(json.dumps(campus, indent = 4))
     else:
         print(f"No se puede matricular")
     os.system("pause")

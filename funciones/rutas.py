@@ -1,16 +1,15 @@
 import os
 import json
-import ui.menus as m
 import funciones.salones as s
 import funciones.pruebas as p
+import funciones.entrenadores as e
 
-listaModulos = ["Fundamentos de programacion", "Programacion Web", "Programacion formal", "Bases de datos", "Backend"]
+listaModulos = ["Fundamentos de programacion", "Programacion Web", "Programacion Formal", "Bases de Datos", "Backend"]
 
 def crearRuta(campus : dict):
     global isIncomplete
     isIncomplete = True
     dataR = campus.get("campus").get("rutas")
-    dataE = campus.get("campus").get("entrenadores")
     nombre = ""
     while(nombre == ""):
         nombre = input(f"Ingrese el nombre de la ruta : ")
@@ -44,10 +43,7 @@ def crearRuta(campus : dict):
             ruta["modulos"].update({modulo["Id"] : modulo})
         dataR.update({ruta["NroId"] : ruta})
         campus.get("campus").get("rutas").update(dataR)
-        # for i in range(0, len(dataE)):
-            # if (len(dataE.get(i)["Idrutas"]) < 2):
-                # dataE.get(i)["Idrutas"].append(ruta["NroId"])
-                # break
+        # e.asignarEntrenador(ruta, campus)
         print(json.dumps(campus, indent = 4))
     else:
         print(f"No se puede crear una ruta sin un salón")

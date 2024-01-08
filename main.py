@@ -41,7 +41,7 @@ if __name__ == "__main__":
                     id = ""
                     while(id == ""):
                         id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")
-                    p.regPruebaInicial(id, campus)
+                    p.regPrueba(id, campus)
             elif (opMainMenu == 3): 
                 os.system("cls")
                 s.regSalones(campus)
