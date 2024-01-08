@@ -8,6 +8,12 @@ import funciones.corefile as cf
 listaModulos = ["Fundamentos de programacion", "Programacion Web", "Programacion Formal", "Bases de Datos", "Backend"]
 
 def crearRuta(campus : dict):
+    header = """
+    *************************************
+    *        CREACIÓN DE RUTAS          *
+    *************************************
+    """
+    print(header)
     global isIncomplete
     isIncomplete = True
     dataR = campus.get("campus").get("rutas")

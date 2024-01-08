@@ -19,6 +19,11 @@ campus = {
 if __name__ == "__main__":
     isActiveApp = True
     opMainMenu = 0
+    header = """
+    *************************************
+    *       REGISTRO DE PRUEBAS         *
+    *************************************
+    """
     while(isActiveApp):
         os.system("cls")
         e.crearEntrenadores(campus)
@@ -37,6 +42,7 @@ if __name__ == "__main__":
                     print(f"No se pueden registrar pruebas hasta que se registren salones y rutas")
                     os.system("pause")
                 else:
+                    print(header)
                     id = ""
                     while(id == ""):
                         id = input(f"Ingrese el id del Camper que desea registrar la prueba : ")

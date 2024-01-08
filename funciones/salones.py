@@ -24,6 +24,12 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
     return valorDato
 
 def regSalones(campus : dict):
+    header = """
+    *************************************
+    *       REGISTRO DE SALONES         *
+    *************************************
+    """
+    print(header)
     data = campus.get("campus").get("salones")
     valor = 0
     id = verificarDato(valor, "Ingrese el ID del salón : ", data)

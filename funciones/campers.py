@@ -43,6 +43,12 @@ def verificarDato(valorDato, enunciadoDato, data) -> str:
     return valorDato
     
 def regCamper(campus : dict):
+    header = """
+    *************************************
+    *       REGISTRO DE CAMPERS         *
+    *************************************
+    """
+    print(header)
     data = campus.get("campus").get("campers")
     valor = ""
     print(f"")
@@ -98,7 +104,6 @@ def regCamper(campus : dict):
     data.update({camper["NroId"] : camper})
     campus.get("campus").get("campers").update(data)
     cf.UpdateFile(campus)
-    # print(json.dumps(campus, indent = 4))
     os.system("pause")
 
 def buscarCamper(idCamper : str, campus : dict) -> dict:
@@ -110,6 +115,12 @@ def buscarCamper(idCamper : str, campus : dict) -> dict:
         return data
     
 def matricularCamper(campus : dict):
+    header = """
+    *************************************
+    *       MATRÍCULA DE CAMPERS        *
+    *************************************
+    """
+    print(header)
     # dataE = campus.get("campus").get("entrenadores")
     dataR = campus.get("campus").get("rutas")
     dataS = campus.get("campus").get("salones")

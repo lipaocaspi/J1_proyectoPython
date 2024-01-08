@@ -14,7 +14,6 @@ def AddData(*param):
             data_file.update({param[0] : param[1]})
         else:
             data_file.update({param[0]})
-        # data_file[llavePrincipal].update({codigo:info})
         rwf.seek(0)
         json.dump(data_file, rwf, indent = 4)
         rwf.close()
