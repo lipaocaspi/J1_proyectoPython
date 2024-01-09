@@ -42,7 +42,7 @@ def crearRuta(campus : dict):
                 print(f"Módulo {item}".upper())
                 print(f"")
                 valor = 0
-                rta = p.verificarNota(valor, "¿Cuántos temas desea agregar al módulo? : ", int)
+                rta = 2
                 j = 1
                 while (j <= rta):
                     tema = input(f"Ingrese el nombre del tema correspondiente al módulo : ")
