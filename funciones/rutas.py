@@ -22,9 +22,9 @@ def crearRuta(campus : dict):
     while(nombre == ""):
         nombre = input(f"Ingrese el nombre de la ruta : ")
     idSalon = s.buscarSalon(campus)
-    idTrainer = c.verificarDato(valor, "Ingrese el id del trainer : ", dataE)
-    if (dataE.get(idTrainer)["RutasAsignadas"] < 2):
-        if (idSalon != ""):
+    if (idSalon != ""):
+        idTrainer = c.verificarDato(valor, "Ingrese el id del trainer : ", dataE)
+        if (dataE.get(idTrainer)["RutasAsignadas"] < 2):
             ruta = {
                 "NroId" : str(len(campus["campus"]["rutas"]) + 1),
                 "Nombre" : nombre,
@@ -58,9 +58,9 @@ def crearRuta(campus : dict):
             campus.get("campus").get("entrenadores").update(dataE)
             cf.UpdateFile(campus)
         else:
-            print(f"No se puede crear una ruta sin un salón")
+            print(f"No se le pueden asignar más rutas a este Trainer")
     else:
-        print(f"No se le pueden asignar más rutas a este Trainer")
+        print(f"No se puede crear una ruta sin un salón")
 
 def buscarRuta(campus : dict) -> str:
     idRuta = ""
