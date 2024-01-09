@@ -1,4 +1,5 @@
 import funciones.corefile as cf
+import funciones.rutas as r
 
 cf.MY_DATABASE='data/campus.json'
 isEmpty = True
@@ -138,6 +139,7 @@ def matricularCamper(campus : dict):
     
     if (camper != {} and camper["Estado"] == "Aprobado"):
         valor = 0
+        r.imprimirRutas(campus)
         idRuta = verificarDato(valor, "Ingrese el id de la ruta : ", dataR)
         idSalon = dataR.get(idRuta)["IdSalon"]
         idTrainer = dataR.get(idRuta)["IdTrainer"]
@@ -161,28 +163,34 @@ def matricularCamper(campus : dict):
         print(f"No se puede matricular")
 
 def campersInscritos(campus : dict):
-    print(f"")
-    print(f"LISTADO DE CAMPERS INSCRITOS")
-    print(f"")
-    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
-    print(f"------------------------------------------------------")
     data = campus.get("campus").get("campers").keys()
-    for i in list(data):
-        dataC = campus.get("campus").get("campers").get(i, -1)
-        if (dataC["Estado"] == "Inscrito"):
-            print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+    if (data):
+        print(f"")
+        print(f"LISTADO DE CAMPERS INSCRITOS")
+        print(f"")
+        print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+        print(f"------------------------------------------------------")
+        for i in list(data):
+            dataC = campus.get("campus").get("campers").get(i, -1)
+            if (dataC["Estado"] == "Inscrito"):
+                print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+    else:
+        print(f"No existen Campers con el estado inscrito")
 
 def campersAprobados(campus : dict):
-    print(f"")
-    print(f"LISTADO DE CAMPERS APROBADOS")
-    print(f"")
-    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
-    print(f"------------------------------------------------------")
     data = campus.get("campus").get("campers").keys()
-    for i in list(data):
-        dataC = campus.get("campus").get("campers").get(i, -1)
-        if (dataC["Estado"] == "Aprobado"):
-            print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+    if (data):
+        print(f"")
+        print(f"LISTADO DE CAMPERS APROBADOS")
+        print(f"")
+        print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+        print(f"------------------------------------------------------")
+        for i in list(data):
+            dataC = campus.get("campus").get("campers").get(i, -1)
+            if (dataC["Estado"] == "Aprobado"):
+                print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+    else:
+        print(f"No existen Campers con el estado aprobado")
 
 def campersBajoRendimiento(campus : dict):
     print(f"")

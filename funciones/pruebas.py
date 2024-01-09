@@ -45,7 +45,6 @@ def regPrueba(id : str, campus : dict):
             idModulo = ""
             while (idModulo not in ["1", "2", "3", "4", "5"]):
                 idModulo = verificarNota(valor, "Ingrese el id del módulo cuyas pruebas quiere registrar : ", str)
-            
             notaT = verificarNota(valor, "Ingrese el valor de la nota téorica (0 a 100) : ", int)
             notaP = verificarNota(valor, "Ingrese el valor de la nota práctica (0 a 100) : ", int)
             notaQT = verificarNota(valor, "Ingrese el valor de la nota de quices y trabajos (0 a 100) : ", int)

@@ -52,8 +52,12 @@ def mostrarMenuR():
             elif (opMenu == 5):
                 os.system("cls")
                 idRuta = r.buscarRuta(m.campus)
-                r.mostrarRuta(idRuta, m.campus)
+                if (idRuta != ""):
+                    r.mostrarRuta(idRuta, m.campus)
             elif (opMenu == 6):
                 os.system("cls")
             elif (opMenu == 7):
                 isIncorrect = False
+            else:
+                print(f"Opción incorrecta")
+        os.system("pause")

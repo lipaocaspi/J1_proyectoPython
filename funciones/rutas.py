@@ -90,3 +90,12 @@ def mostrarRuta(idRuta : str, campus : dict):
     print(f"\tENTRENADOR")
     print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
     print("{:<15} {:<15} {:<20}".format(dataE["NroId"], dataE["Nombre"], dataE["Apellidos"]))
+
+def imprimirRutas(campus : dict):
+    dataR = campus.get("campus").get("rutas").keys()
+    print(f"")
+    print("{:<15} {:<15}".format("ID", "NOMBRE RUTA"))
+    print(f"")
+    for i in list(dataR):
+        data = campus.get("campus").get("rutas").get(i, -1)
+        print("{:<15} {:<15}".format(data["NroId"], data["Nombre"]))
