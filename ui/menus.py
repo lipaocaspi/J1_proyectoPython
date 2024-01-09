@@ -51,6 +51,7 @@ def mostrarMenuR():
                 c.campersBajoRendimiento(m.campus)
             elif (opMenu == 5):
                 os.system("cls")
+                r.imprimirRutas(m.campus)
                 idRuta = r.buscarRuta(m.campus)
                 if (idRuta != ""):
                     r.mostrarRuta(idRuta, m.campus)

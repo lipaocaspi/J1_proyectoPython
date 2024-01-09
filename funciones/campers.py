@@ -179,18 +179,16 @@ def campersInscritos(campus : dict):
 
 def campersAprobados(campus : dict):
     data = campus.get("campus").get("campers").keys()
-    if (data):
-        print(f"")
-        print(f"LISTADO DE CAMPERS APROBADOS")
-        print(f"")
-        print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
-        print(f"------------------------------------------------------")
-        for i in list(data):
-            dataC = campus.get("campus").get("campers").get(i, -1)
-            if (dataC["Estado"] == "Aprobado"):
-                print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
-    else:
-        print(f"No existen Campers con el estado aprobado")
+    print(f"")
+    print(f"LISTADO DE CAMPERS APROBADOS")
+    print(f"")
+    print("{:<15} {:<15} {:<20}".format("ID", "NOMBRE", "APELLIDO"))
+    print(f"------------------------------------------------------")
+    for i in list(data):
+        dataC = campus.get("campus").get("campers").get(i, -1)
+        if (dataC["Estado"] == "Aprobado"):
+            print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+    print(f"")
 
 def campersBajoRendimiento(campus : dict):
     print(f"")
@@ -203,3 +201,4 @@ def campersBajoRendimiento(campus : dict):
         dataC = campus.get("campus").get("campers").get(i, -1)
         if (dataC["Estado"] == "En Riesgo"):
             print("{:<15} {:<15} {:<20}".format(dataC["NroId"], dataC["Nombre"], dataC["Apellido"]))
+    print(f"")

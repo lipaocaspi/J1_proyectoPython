@@ -29,8 +29,10 @@ def regPrueba(id : str, campus : dict):
             notaTotal = (notaT + notaP) / 2
             if (notaTotal >= 60):
                 estado = "Aprobado"
+                print(f"APROBÓ LA PRUEBA")
             else:
                 estado = "Desaprobado"
+                print(f"NO APROBÓ LA PRUEBA")
             prueba = {
                 "idCamper" : id,
                 "nota" : notaTotal,
